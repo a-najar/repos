@@ -1,14 +1,18 @@
 package com.trycarriage.test.ui.activities.users.repos
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.trycarriage.test.R
+import com.trycarriage.test.ui.base.ui.BaseActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class UserReposActivity : AppCompatActivity() {
+class UserReposActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_repos)
-        setSupportActionBar(toolbar)
+
+    private val viewModel: UserReposViewModel<UserReposNavigator> by viewModel()
+
+
+    override fun bindViews(savedInstanceState: Bundle?) {
+
     }
+
+
 }
