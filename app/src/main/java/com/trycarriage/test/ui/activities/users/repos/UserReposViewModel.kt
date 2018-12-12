@@ -2,8 +2,10 @@ package com.trycarriage.test.ui.activities.users.repos
 
 import com.trycarriage.test.application.helpers.rx.SchedulerProvider
 import com.trycarriage.test.data.DataManager
+import com.trycarriage.test.data.remote.api.models.users.repos.req.RequestUserRepos
 import com.trycarriage.test.ui.base.arch.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
+import timber.log.Timber
 
 /**
  * @name Test
@@ -17,7 +19,11 @@ class UserReposViewModel<N : UserReposNavigator>(
 
 
     fun getRepos() {
-
+        compositeDisposable.add(
+            dataManager.getRepos(RequestUserRepos("mralexgray"))
+                .compose(schedulerProvider.ioToMainSingleScheduler())
+                .subscribe({ getNavigator().showRepos(it) }, Timber::d)
+        )
     }
 
 }
