@@ -14,4 +14,5 @@ interface MvvmNavigator {
     fun showMessage(@StringRes message: Int)
 
     fun isConnected(): Boolean
+    fun showNoInternetConnection()
 }

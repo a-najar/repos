@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.trycarriage.test.application.helpers.ktx.getLayoutRes
 import com.trycarriage.test.application.helpers.network.isNetworkConnected
+import com.trycarriage.test.ui.dialogs.connectivity.ConnectivityDialog
 import com.trycarriage.test.ui.base.arch.MvvmNavigator
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -58,6 +59,10 @@ open class BaseActivity : AppCompatActivity(), MvvmNavigator {
 
     override fun isConnected(): Boolean {
         return isNetworkConnected()
+    }
+
+    override fun showNoInternetConnection() {
+        ConnectivityDialog.newInstance().show(supportFragmentManager, ConnectivityDialog.TAG)
     }
 
 }

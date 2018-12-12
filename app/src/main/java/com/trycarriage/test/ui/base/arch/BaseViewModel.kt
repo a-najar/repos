@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.trycarriage.test.application.helpers.rx.SchedulerProvider
 import com.trycarriage.test.data.DataManager
 import io.reactivex.disposables.CompositeDisposable
+import timber.log.Timber
 
 /**
  * @name Test
@@ -39,7 +40,7 @@ open class BaseViewModel<N : MvvmNavigator>(
     }
 
     override fun handleError(error: Throwable) {
-
+        Timber.d(error)
     }
 
     class MvvmNavigatorException : KotlinNullPointerException("Please add the mvvm navigator to your view model")

@@ -5,7 +5,6 @@ import com.trycarriage.test.data.DataManager
 import com.trycarriage.test.data.remote.api.models.users.repos.req.RequestUserRepos
 import com.trycarriage.test.ui.base.arch.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
-import timber.log.Timber
 
 /**
  * @name Test
@@ -18,11 +17,20 @@ class UserReposViewModel<N : UserReposNavigator>(
     BaseViewModel<N>(dataManager, compositeDisposable, schedulerProvider) {
 
 
+    companion object {
+        const val ACCOUNT_NAME = "mralexgray"
+    }
+
     fun getRepos() {
+        if (!getNavigator().isConnected()) {
+            getNavigator().showNoInternetConnection()
+            return
+        }
+        getNavigator().showLoading()
         compositeDisposable.add(
-            dataManager.getRepos(RequestUserRepos("mralexgray"))
+            dataManager.getRepos(RequestUserRepos(ACCOUNT_NAME))
                 .compose(schedulerProvider.ioToMainSingleScheduler())
-                .subscribe({ getNavigator().showRepos(it) }, Timber::d)
+                .subscribe({ getNavigator().showRepos(it) }, this::handleError)
         )
     }
 

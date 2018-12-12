@@ -23,6 +23,8 @@ buildscript {
         constraint_layout_version = '2.0.0-alpha2'
         material_design_version = '1.1.0-alpha01'
 
+        fast_adapter_version = '3.3.1'
+
         // unit test version
         junit_version = '4.12'
         test_runner_version = '1.1.1-beta01'

@@ -51,6 +51,12 @@ dependencies {
             "com.google.android.material:material:$material_design_version"
     )
 
+    implementation(
+            "com.mikepenz:fastadapter:$fast_adapter_version",
+            "com.mikepenz:fastadapter-commons:$fast_adapter_version",
+            "com.mikepenz:fastadapter-extensions:$fast_adapter_version"
+    )
+
     // insert koin for decadency injection
     implementation(
             "org.koin:koin-android:$koin_version",

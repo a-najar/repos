@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:cardCornerRadius="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:id="@+id/textOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Default Branch/Master"
+                app:layout_constraintTop_toTopOf="@id/textTag"
+                app:layout_constraintBottom_toBottomOf="@id/textTag"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorTextPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        <TextView
+                android:id="@+id/textTitle"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toStartOf="@id/textTag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textOne"
+                android:layout_marginTop="5dp"
+                android:layout_width="0dp"
+                tools:text="geniusforapp/Fancy dialog"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/text_size_m"
+                android:layout_height="wrap_content"
+                />
+
+        <TextView
+                android:id="@+id/textSubTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="0dp"
+                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="@dimen/text_size_sm"
+                app:layout_constraintTop_toBottomOf="@id/textTitle"
+                android:layout_height="wrap_content"
+                />
+
+
+        <TextView
+                android:id="@+id/textTag"
+                style="@style/Tag"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="30 Forks"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toStartOf="@id/textTag2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+        <TextView
+                android:id="@+id/textTag2"
+                style="@style/Tag"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="30 watcher"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

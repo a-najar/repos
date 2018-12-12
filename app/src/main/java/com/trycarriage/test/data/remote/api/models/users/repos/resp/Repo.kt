@@ -34,7 +34,7 @@ data class Repo(
     @SerializedName("deployments_url")
     val deploymentsUrl: String,
     @SerializedName("description")
-    val description: Any,
+    val description: String,
     @SerializedName("downloads_url")
     val downloadsUrl: String,
     @SerializedName("events_url")
