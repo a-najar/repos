@@ -7,10 +7,32 @@ in this project i followed the mvvm architecture and the reactive programing rx 
 - [Android studio v3.2.1](https://developer.android.com/studio/)
 - [Kotlin v1.3.11](https://kotlinlang.org/docs/reference/)
 
-#### Sdk version
+#### SDK version
 
  * target sdk 28
  * min version 17
+ 
+ 
+### How i version my code 
+
+```gradle
+// i use this to link the app version code by the commit count and the version name by the commit number
+def gitSha = 'git rev-parse --short HEAD'.execute().text.trim()
+def gitCommitCount = 100 + Integer.parseInt('git rev-list --count HEAD'.execute().text.trim())
+
+
+
+android {
+   ...
+    defaultConfig {
+     ...
+        versionCode gitCommitCount
+        versionName gitSha
+       ... 
+      }
+}
+
+``` 
  
 
 ### Libs used in the app
