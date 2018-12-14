@@ -4,7 +4,7 @@ import com.google.gson.reflect.TypeToken
 import com.rx2androidnetworking.Rx2AndroidNetworking
 import com.trycarriage.test.data.remote.api.models.users.repos.req.RequestUserRepos
 import com.trycarriage.test.data.remote.api.models.users.repos.resp.Repo
-import io.reactivex.Single
+import io.reactivex.Observable
 
 /**
  * @name Test
@@ -12,10 +12,11 @@ import io.reactivex.Single
  **/
 class ApiManagerRepositories : ApiManager {
 
-    override fun getRepos(requestUserRepos: RequestUserRepos): Single<ArrayList<Repo>> {
-        return Rx2AndroidNetworking.get(ApiEndPoints.USER_REPOS)
+
+    // here you can get the user repos by account name
+    override fun getRepos(requestUserRepos: RequestUserRepos): Observable<List<Repo>> =
+        Rx2AndroidNetworking.get(ApiEndPoints.USER_REPOS)
             .addPathParameter(requestUserRepos)
             .build()
-            .getParseSingle(object : TypeToken<ArrayList<Repo>>() {})
-    }
+            .getParseObservable(object : TypeToken<List<Repo>>() {})
 }

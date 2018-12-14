@@ -2,7 +2,7 @@ package com.trycarriage.test.data.remote.api
 
 import com.trycarriage.test.data.remote.api.models.users.repos.req.RequestUserRepos
 import com.trycarriage.test.data.remote.api.models.users.repos.resp.Repo
-import io.reactivex.Single
+import io.reactivex.Observable
 
 /**
  * @name Test
@@ -10,5 +10,5 @@ import io.reactivex.Single
  **/
 interface ApiManager {
 
-    fun getRepos(requestUserRepos: RequestUserRepos): Single<ArrayList<Repo>>
+    fun getRepos(requestUserRepos: RequestUserRepos): Observable<List<Repo>>
 }

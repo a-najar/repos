@@ -17,33 +17,34 @@ class UserReposViewModel<N : UserReposNavigator>(
 ) :
     BaseViewModel<N>(dataManager, compositeDisposable, schedulerProvider) {
 
-
-    private var repos: ArrayList<Repo>? = null
+    var data: List<Repo>? = null
 
     companion object {
         const val ACCOUNT_NAME = "mralexgray"
     }
 
     fun getRepos() {
-        if (!getNavigator().isConnected()) {
-            getNavigator().showNoInternetConnection()
+        getNavigator().showLoading()
+        if (data != null) {
+            getNavigator().showRepos(data)
             return
         }
-        getNavigator().showLoading()
-
-        if (repos == null) {
-            getNavigator().showRepos(repos)
-        }
-
         compositeDisposable.add(
             dataManager.getRepos(RequestUserRepos(ACCOUNT_NAME))
-                .compose(schedulerProvider.ioToMainSingleScheduler()).subscribe({
-                    repos = it
+                .compose(schedulerProvider.ioToMainObservableScheduler())
+                .subscribe({
+                    data = it
                     getNavigator().showRepos(it)
-                }, this::handleError)
+                }, ::handleError)
         )
 
 
     }
+
+    fun onRefresh() {
+        data = null
+        getRepos()
+    }
+
 
 }

@@ -1,11 +1,13 @@
 package com.trycarriage.test.di
 
+import androidx.room.Room
 import com.trycarriage.test.application.helpers.rx.AppSchedulerProvider
 import com.trycarriage.test.application.helpers.rx.SchedulerProvider
 import com.trycarriage.test.data.DataManager
 import com.trycarriage.test.data.DataManagerRepositories
 import com.trycarriage.test.data.local.db.DataBaseManagerRepositories
 import com.trycarriage.test.data.local.db.DatabaseManager
+import com.trycarriage.test.data.local.db.room.AppDatabase
 import com.trycarriage.test.data.remote.api.ApiManager
 import com.trycarriage.test.data.remote.api.ApiManagerRepositories
 import com.trycarriage.test.ui.activities.users.repos.UserReposNavigator
@@ -21,6 +23,10 @@ import org.koin.dsl.module.module
 object ApplicationModules {
     val modules = listOf(
         module {
+            single {
+                Room.databaseBuilder(get(), AppDatabase::class.java, "repos-db")
+                    .build()
+            }
             single<DatabaseManager> { DataBaseManagerRepositories(get()) }
             single<ApiManager> { ApiManagerRepositories() }
             single<DataManager> { DataManagerRepositories(get(), get()) }

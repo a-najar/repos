@@ -60,15 +60,16 @@ class UserReposActivity : BaseActivity(), UserReposNavigator, OnClickListener<II
         textPlaceHolder.visible()
     }
 
-    override fun showRepos(it: ArrayList<Repo>?) {
+    override fun showRepos(it: List<Repo>?) {
         swipe.cancelRefresh()
         textPlaceHolder.gone()
+        fastItemAdapter.clear()
         it?.let { it.map { repo -> fastItemAdapter.add(ItemRepo().withRepo(repo)) } }
     }
 
     override fun onRefresh() {
         fastItemAdapter.clear()
-        viewModel.getRepos()
+        viewModel.onRefresh()
     }
 
     override fun onClick(v: View?, adapter: IAdapter<IItem<*, *>>, item: IItem<*, *>, position: Int): Boolean {

@@ -8,5 +8,5 @@ import com.trycarriage.test.ui.base.arch.MvvmNavigator
  * Copyrights (c) 12/12/18 Created By Ahmad Najar
  **/
 interface UserReposNavigator : MvvmNavigator {
-    fun showRepos(it: ArrayList<Repo>?)
+    fun showRepos(it: List<Repo>?)
 }
