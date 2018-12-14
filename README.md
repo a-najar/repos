@@ -1,7 +1,11 @@
 # GitHub repos PlayBook
-Github repos with Rxjava2 and room and mvvm
 
-in this project i followed the mvvm architecture and the reactive programing rx java and rx
+Github repos with Rxjava2,Room,Mvvm
+
+in this project I followed the mvvm architecture and the reactive programing rx java and rx
+
+<img src"https://github.com/geniusforapp/repository/repos/master/img/device-2018-12-14-171301.png"/>
+
 
 ### What to do to start working with the project 
 - [Android studio v3.2.1](https://developer.android.com/studio/)
