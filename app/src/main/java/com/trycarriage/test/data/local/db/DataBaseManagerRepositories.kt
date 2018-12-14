@@ -18,5 +18,7 @@ class DataBaseManagerRepositories(private val appDatabase: AppDatabase) : Databa
 
     override fun patchRepos(repo: List<Repo>) = appDatabase.getReposDao().patchRepos(repo)
 
+    override fun deleteAll() = appDatabase.getReposDao().removeAll()
+
     override fun getRepoById(id: Int): Repo = appDatabase.getReposDao().getRepoById(id)
 }

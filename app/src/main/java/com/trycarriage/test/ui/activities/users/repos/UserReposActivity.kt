@@ -61,10 +61,15 @@ class UserReposActivity : BaseActivity(), UserReposNavigator, OnClickListener<II
     }
 
     override fun showRepos(it: List<Repo>?) {
-        swipe.cancelRefresh()
-        textPlaceHolder.gone()
-        fastItemAdapter.clear()
-        it?.let { it.map { repo -> fastItemAdapter.add(ItemRepo().withRepo(repo)) } }
+        it?.let {
+            if (it.isNotEmpty()) {
+                swipe.cancelRefresh()
+            }
+            textPlaceHolder.gone()
+            fastItemAdapter.clear()
+            it.map { repo -> fastItemAdapter.add(ItemRepo().withRepo(repo)) }
+        }
+
     }
 
     override fun onRefresh() {

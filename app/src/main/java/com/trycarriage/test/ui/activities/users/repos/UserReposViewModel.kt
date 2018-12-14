@@ -42,6 +42,10 @@ class UserReposViewModel<N : UserReposNavigator>(
     }
 
     fun onRefresh() {
+        if (!getNavigator().isConnected()) {
+            getNavigator().showNoInternetConnection()
+            return
+        }
         data = null
         getRepos()
     }

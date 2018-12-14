@@ -13,6 +13,7 @@ import io.reactivex.Observable
  **/
 class DataManagerRepositories(private val apiManager: ApiManager, private val databaseManager: DatabaseManager) :
     DataManager {
+    override fun deleteAll() = databaseManager.deleteAll()
 
     override fun getRepos(): Observable<List<Repo>> = databaseManager.getRepos()
 
@@ -23,6 +24,10 @@ class DataManagerRepositories(private val apiManager: ApiManager, private val da
     override fun getRepoById(id: Int): Repo = databaseManager.getRepoById(id)
 
     override fun getRepos(requestUserRepos: RequestUserRepos): Observable<List<Repo>> =
-        Observable.mergeArrayDelayError(getRepos(), apiManager.getRepos(requestUserRepos).doOnNext { patchRepos(it) })
+        Observable.mergeArrayDelayError(getRepos(), apiManager.getRepos(requestUserRepos)
+            .doOnNext {
+                deleteAll()
+                patchRepos(it)
+            })
 
 }

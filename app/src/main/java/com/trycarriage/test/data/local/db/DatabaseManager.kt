@@ -13,4 +13,5 @@ interface DatabaseManager {
     fun insertRepo(repo: Repo): Completable
     fun patchRepos(repo: List<Repo>)
     fun getRepoById(id: Int): Repo
+    fun deleteAll()
 }

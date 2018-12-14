@@ -26,4 +26,8 @@ interface ReposDao {
 
     @Query("select * from repos where id=:repoId")
     fun getRepoById(repoId: Int): Repo
+
+
+    @Query("delete from repos")
+    fun removeAll()
 }
