@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">GitHub\nRepos (Test)</string>
     <string name="action_settings">Settings</string>
     <string name="text_user_repos_place_holder">Cannot retrieve any repository</string>
     <string name="text_title_connectivity">Connectivity</string>
-    <string name="text_sub_title_connectivity">No Internet Connection Make sure you are connected to Wifi or celleur data</string>
+    <string name="text_sub_title_connectivity">No Internet Connection Make sure you are connected to Wifi or caller data</string>
     <string name="btn_settings">Go to settings</string>
 </resources>
