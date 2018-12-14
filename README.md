@@ -48,7 +48,7 @@ android {
    Other libs 
    * [Fast adapter](https://github.com/mikepenz/FastAdapter)
    * [Koin](https://insert-koin.io/)
-   * [RxJava & RxAndroid](https://developer.android.com/topic/libraries/support-library/revisions)
+   * [RxJava & RxAndroid](https://github.com/ReactiveX/RxJava)
    * [Timber](https://github.com/JakeWharton/timber)
     
 
