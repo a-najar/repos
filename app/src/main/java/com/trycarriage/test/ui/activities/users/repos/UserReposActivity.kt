@@ -53,6 +53,14 @@ class UserReposActivity : BaseActivity(), UserReposNavigator, OnClickListener<II
         swipe.refresh()
     }
 
+    override fun showMessage(message: String) {
+        super.showMessage(message)
+        swipe.cancelRefresh()
+        fastItemAdapter.clear()
+        textPlaceHolder.visible()
+        textPlaceHolder.text = message
+    }
+
     override fun showNoInternetConnection() {
         super.showNoInternetConnection()
         swipe.cancelRefresh()
