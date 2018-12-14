@@ -7,6 +7,7 @@ plugins {
 // i use this to link the app version code by the commit count and the version name by the commit number
 def gitSha = 'git rev-parse --short HEAD'.execute().text.trim()
 def gitCommitCount = 100 + Integer.parseInt('git rev-list --count HEAD'.execute().text.trim())
+def date = new Date().format("YY-MMM-dd")
 
 android {
     compileSdkVersion compile_sdk_version
@@ -22,6 +23,9 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        setArchivesBaseName "$versionCode-$versionName-$date"
+
     }
     buildTypes {
         release {
