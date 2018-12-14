@@ -43,9 +43,9 @@ android {
    * [Android Ktx](https://developer.android.com/kotlin/ktx) 
    * [Material design 2](https://material.io/develop/android/)
    * [Espresso test And JUnit test](https://developer.android.com/topic/libraries/support-library/revisions) 
+   * [Room Database](https://developer.android.com/topic/libraries/support-library/revisions) 
    
    Other libs 
-   * [Room Database](https://developer.android.com/topic/libraries/support-library/revisions) 
    * [Fast adapter](https://github.com/mikepenz/FastAdapter)
    * [Koin](https://insert-koin.io/)
    * [RxJava & RxAndroid](https://developer.android.com/topic/libraries/support-library/revisions)
