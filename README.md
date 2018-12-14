@@ -4,8 +4,8 @@ Github repos with Rxjava2,Room,Mvvm
 
 in this project I followed the mvvm architecture and the reactive programing rx java and rx
 
+<img src="/images/image.png" width="1024">
 <img src="/images/device-2018-12-14-171301.png" width="200">
-<img src="/images/image.png" width="400">
 
 
 
