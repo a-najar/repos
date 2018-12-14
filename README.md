@@ -4,7 +4,7 @@ Github repos with Rxjava2,Room,Mvvm
 
 in this project I followed the mvvm architecture and the reactive programing rx java and rx
 
-<img src"https://github.com/geniusforapp/repository/repos/master/img/device-2018-12-14-171301.png" />
+<img src="/images/device-2018-12-14-171301.png" alt="app image" height="800" width="800">
 
 
 ### What to do to start working with the project 
