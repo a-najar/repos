@@ -3,6 +3,7 @@ package com.trycarriage.test.ui.activities.users.repos
 import com.trycarriage.test.application.helpers.rx.SchedulerProvider
 import com.trycarriage.test.data.DataManager
 import com.trycarriage.test.data.remote.api.models.users.repos.req.RequestUserRepos
+import com.trycarriage.test.data.remote.api.models.users.repos.resp.Repo
 import com.trycarriage.test.ui.base.arch.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
 
@@ -17,6 +18,8 @@ class UserReposViewModel<N : UserReposNavigator>(
     BaseViewModel<N>(dataManager, compositeDisposable, schedulerProvider) {
 
 
+    private var repos: ArrayList<Repo>? = null
+
     companion object {
         const val ACCOUNT_NAME = "mralexgray"
     }
@@ -27,11 +30,20 @@ class UserReposViewModel<N : UserReposNavigator>(
             return
         }
         getNavigator().showLoading()
+
+        if (repos == null) {
+            getNavigator().showRepos(repos)
+        }
+
         compositeDisposable.add(
             dataManager.getRepos(RequestUserRepos(ACCOUNT_NAME))
-                .compose(schedulerProvider.ioToMainSingleScheduler())
-                .subscribe({ getNavigator().showRepos(it) }, this::handleError)
+                .compose(schedulerProvider.ioToMainSingleScheduler()).subscribe({
+                    repos = it
+                    getNavigator().showRepos(it)
+                }, this::handleError)
         )
+
+
     }
 
 }

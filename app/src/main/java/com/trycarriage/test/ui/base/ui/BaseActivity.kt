@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.trycarriage.test.application.helpers.ktx.getLayoutRes
 import com.trycarriage.test.application.helpers.network.isNetworkConnected
-import com.trycarriage.test.ui.dialogs.connectivity.ConnectivityDialog
 import com.trycarriage.test.ui.base.arch.MvvmNavigator
+import com.trycarriage.test.ui.dialogs.connectivity.ConnectivityDialog
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
 /**
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
  * Copyrights (c) 12/12/18 Created By Ahmad Najar
  **/
 open class BaseActivity : AppCompatActivity(), MvvmNavigator {
-
+    val connectivityDialog = ConnectivityDialog.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +62,9 @@ open class BaseActivity : AppCompatActivity(), MvvmNavigator {
     }
 
     override fun showNoInternetConnection() {
-        ConnectivityDialog.newInstance().show(supportFragmentManager, ConnectivityDialog.TAG)
+        if (!connectivityDialog.isDialogAddedToScreen) {
+            connectivityDialog.show(supportFragmentManager, ConnectivityDialog.TAG)
+        }
     }
 
 }
